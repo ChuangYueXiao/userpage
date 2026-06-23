@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+:root {
+    --mycolor01: #F5F5DC;
+    --mycolor02: #A3A3CB;
+    --mycolor03: #6464AC;
+    --mycolor04: #535D55;
+    --mycolor05: #514644;
+    --mycolor06: #ffffff;
+    --mycolor07: #FE5A5A;
+    --mycolor08: #000000;
+    --mycolor09: #B6F5FF;
+    --mycolor10: #9800c2;
+    --mycolor11: #69fff0;
+    --mycolor12: #FD929F;
+}
+
+.fw-100 {
+    font-weight: 100;
+}
+
+.fw-200 {
+    font-weight: 200;
+}
+
+.fw-300 {
+    font-weight: 300;
+}
+
+.fw-400 {
+    font-weight: 400;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+
+.fw-800 {
+    font-weight: 800;
+}
+
+.fw-900 {
+    font-weight: 900;
+}
+
+.btn-test-primary {
+    color: var(--mycolor12)
+}
+
+.btn-test-secondary {
+    color: var(--mycolor11)
+}
+
+/*捲動卷軸*/
+/* .roller-t .roller-b .roller-l .roller-r */
+/* 由上而下 */
+.roller-t {
+    position: relative;
+    overflow: hidden;
+}
+
+.roller-t .roller_box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+
+    top: -100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: top 1.5s;
+}
+
+.roller-t:hover .roller_box {
+    top: 0;
+}
+
+/* 由下而上 */
+.roller-b {
+    position: relative;
+    overflow: hidden;
+}
+
+.roller-b .roller_box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+
+    bottom: -100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: bottom 1.5s;
+}
+
+.roller-b:hover .roller_box {
+    bottom: 0;
+}
+
+/* 由左而右 */
+.roller-l {
+    position: relative;
+    overflow: hidden;
+}
+
+.roller-l .roller_box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+
+    left: -100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: left 1.5s;
+}
+
+.roller-l:hover .roller_box {
+    left: 0;
+}
+
+/* 由右而左 */
+.roller-r {
+    position: relative;
+    overflow: hidden;
+}
+
+.roller-r .roller_box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+
+    right: -100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: right 1.5s;
+}
+
+.roller-r:hover .roller_box {
+    right: 0;
+}
+
+/* 背景圖 */
+
+.bg-cover{
+    background-position: center center;
+    background-size: cover;
+}

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/all.min.css">
+    <title>Document</title>
+    <style>
+        :root {
+            /* ===== 主色系 ===== */
+            --color-primary: #5b6c8f;
+            /* 溫暖藍灰：按鈕、連結 */
+            --color-primary-light: #7f90b3;
+            --color-primary-dark: #44506b;
+
+            /* ===== 輔助色 ===== */
+            --color-accent: #d9a273;
+            /* 暖橘色：標籤、重點 */
+            --color-accent-light: #e8c4a4;
+            --color-accent-dark: #b88558;
+
+            /* ===== 背景 ===== */
+            --color-bg: #faf8f5;
+            /* 整體背景 */
+            --color-bg-secondary: #f1eaea;
+            /* 區塊背景 */
+            --color-card: #ffffff;
+            /* 卡片背景 */
+
+            /* ===== 文字 ===== */
+            --color-text: #2f343d;
+            /* 主要文字 */
+            --color-text-secondary: #6d7380;
+            --color-text-light: #9aa1ad;
+
+            /* ===== 邊框 ===== */
+            --color-border: #e4dfd8;
+            --color-divider: #ebe7e1;
+
+            /* ===== 狀態色 ===== */
+            --color-success: #6c9a8b;
+            --color-warning: #d7a74f;
+            --color-error: #c96c6c;
+
+            /* ===== 陰影 ===== */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+
+            /* ===== Hero 區背景漸層 ===== */
+            --gradient-hero: linear-gradient(135deg,
+                    #faf8f5 0%,
+                    #f2eee8 40%,
+                    #e6edf7 100%);
+
+            /* ===== 作品集卡片 Hover ===== */
+            --gradient-card-hover: linear-gradient(135deg,
+                    #ffffff 0%,
+                    #f8f5f1 100%);
+        }
+
+        body {
+            background-color: var(--color-bg);
+        }
+
+        .s01 {
+            background-color: var(--color-bg-secondary);
+            height: 100vh;
+            position: relative;
+        }
+        .s01 .box01{
+            width: 200px;
+            height: 200px;
+            background-color: var(--color-accent);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .s01 .box02{
+            width: 200px;
+            height: 200px;
+            background-color: var(--color-accent);
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .s01 .box03{
+            width: 200px;
+            height: 200px;
+            background-color: var(--color-accent);
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+        .s01 .box04{
+            width: 200px;
+            height: 200px;
+            background-color: var(--color-accent);
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+        .s01 .userImg{
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            bottom: 100px;
+            right: 100px;
+            background-image: url(images/user01.webp);
+            background-position: center center;
+            background-size: cover;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+        }
+        .userText{
+            position: absolute;
+            top: 65%;
+            left: 10%;
+            right: 65%;
+
+        }
+
+        .s02{
+            padding: 80px 10%;
+            background-color: var(--color-bg-secondary);
+            text-align: center;
+        }
+        .s02 h2{
+            font-size: 36px;
+        }
+        .s02 .card{
+            width: 240px;
+            background-color: var(--color-card);
+            padding: 20px;
+            text-align: left;
+            border-radius: 12px;
+        }
+        .s02 .card h3{
+            color: var(--color-text);
+            margin-top: 0;
+        }
+        .s02 .card p{
+            line-height: 1.7;
+            color: var(--color-text-secondary);
+        }
+        .s02 .card a{
+            text-decoration: none;
+            display: block;
+            color: var(--color-primary-dark);
+            background-color: var(--color-primary-light);
+            margin-right: 15px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 5px;
+            box-shadow: 3px 3px 3px 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="s01">
+        <div class="box01"></div>
+        <div class="box02"></div>
+        <div class="box03"></div>
+        <div class="box04"></div>
+        <div class="userImg"></div>
+        <div class="userText">
+            <h1>履歷</h1>
+            <hr>
+            <h2>應徵職位:</h2>
+            <p>座右銘: </p>
+        </div>
+    </section>
+    <section class="s02">
+        <h2>我的作品</h2>
+
+        <div class="card">
+            <h3>切版練習</h3>
+            <p>使用HTML、CSS、JAVASCRIPT練習切版</p>
+            <a href="20260527-1.html" target="_blank">查看作品</a>
+        </div>
+        <div class="card">
+            <h3>table排版練習</h3>
+            <p>使用HTML、CSS、JAVASCRIPT練習製作表格類型的排版</p>
+            <a href="20260605-AI-ch5.html" target="_blank">查看作品</a>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP產品管理系統</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/my.css">
+
+    <style>
+        :root {
+            --erp-primary: #1f2937;
+            --erp-secondary: #374151;
+            --erp-bg: #f4f6f9;
+            --erp-success: #22c55e;
+            --erp-warning: #f59e0b;
+            --erp-danger: #ef4444;
+            --erp-border: #d1d5db;
+        }
+
+        body {
+            background-color: var(--erp-bg);
+            font-family: "Microsoft JhengHei", sans-serif;
+        }
+
+        .erp-title {
+            color: var(--erp-primary);
+            font-weight: 900;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+        }
+
+        .erp-table {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .08);
+        }
+
+        .erp-table thead {
+            background-color: var(--erp-primary);
+            color: white;
+        }
+
+        .erp-table th {
+            text-align: center;
+            vertical-align: middle;
+            padding: 15px;
+        }
+
+        .erp-table td {
+            vertical-align: middle;
+            padding: 12px;
+        }
+
+        .product-id {
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .product-name {
+            font-weight: 700;
+        }
+
+        .product-price {
+            color: var(--erp-danger);
+            font-weight: 700;
+        }
+
+        .product-stock {
+            color: var(--erp-success);
+            font-weight: 700;
+        }
+
+        .product-note {
+            color: #6b7280;
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: #eef4ff;
+            transition: .3s;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .table-rwd thead,
+            caption {
+                display: none;
+            }
+
+            .table-rwd tbody tr {
+                display: block;
+                margin-top: 20px;
+                border: 2px solid var(--erp-border);
+                border-radius: 10px;
+                background-color: #fff;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+            }
+
+            .table-rwd tbody tr td {
+                display: block;
+                overflow: hidden;
+                border: none;
+            }
+
+            .table-rwd tbody tr td::before {
+                content: attr(data-th) ":";
+                font-size: 16px;
+                font-weight: bold;
+                color: var(--erp-primary);
+                display: block;
+                float: left;
+                width: 30%;
+                text-align: right;
+                padding-right: 1em;
+            }
+
+            .table-rwd tbody tr td span {
+                display: block;
+                float: left;
+                width: 65%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="display-3 text-center erp-title">
+            <i class="fa-solid fa-boxes-stacked me-2"></i>
+            ERP手搖飲商品管理系統
+        </div>
+
+        <table class="table table-bordered table-hover table-striped table-rwd erp-table">
+            <caption>表1.1 商品資料管理表</caption>
+
+            <thead>
+                <tr>
+                    <th>產品編號</th>
+                    <th>產品名稱</th>
+                    <th>產品價格</th>
+                    <th>產品數量</th>
+                    <th>產品備註</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td data-th="產品編號"><span class="product-id">D001</span></td>
+                    <td data-th="產品名稱"><span class="product-name">珍珠奶茶</span></td>
+                    <td data-th="產品價格"><span class="product-price">65元</span></td>
+                    <td data-th="產品數量"><span class="product-stock">120</span></td>
+                    <td data-th="產品備註"><span class="product-note">熱銷商品</span></td>
+                </tr>
+
+                <tr>
+                    <td data-th="產品編號"><span class="product-id">D002</span></td>
+                    <td data-th="產品名稱"><span class="product-name">波霸奶茶</span></td>
+                    <td data-th="產品價格"><span class="product-price">70元</span></td>
+                    <td data-th="產品數量"><span class="product-stock">95</span></td>
+                    <td data-th="產品備註"><span class="product-note">人氣推薦</span></td>
+                </tr>
+
+                <tr>
+                    <td data-th="產品編號"><span class="product-id">D003</span></td>
+                    <td data-th="產品名稱"><span class="product-name">四季春青茶</span></td>
+                    <td data-th="產品價格"><span class="product-price">35元</span></td>
+                    <td data-th="產品數量"><span class="product-stock">200</span></td>
+                    <td data-th="產品備註"><span class="product-note">無糖首選</span></td>
+                </tr>
+
+                <tr>
+                    <td data-th="產品編號"><span class="product-id">D004</span></td>
+                    <td data-th="產品名稱"><span class="product-name">烏龍綠茶</span></td>
+                    <td data-th="產品價格"><span class="product-price">40元</span></td>
+                    <td data-th="產品數量"><span class="product-stock">150</span></td>
+                    <td data-th="產品備註"><span class="product-note">經典茶飲</span></td>
+                </tr>
+
+                <tr>
+                    <td data-th="產品編號"><span class="product-id">D005</span></td>
+                    <td data-th="產品名稱"><span class="product-name">冬瓜檸檬</span></td>
+                    <td data-th="產品價格"><span class="product-price">50元</span></td>
+                    <td data-th="產品數量"><span class="product-stock">88</span></td>
+                    <td data-th="產品備註"><span class="product-note">夏季限定</span></td>
+                </tr>
+
+                <tr>
+                    <td data-th="產品編號"><span class="product-id">D006</span></td>
+                    <td data-th="產品名稱"><span class="product-name">紅茶拿鐵</span></td>
+                    <td data-th="產品價格"><span class="product-price">75元</span></td>
+                    <td data-th="產品數量"><span class="product-stock">72</span></td>
+                    <td data-th="產品備註"><span class="product-note">鮮奶系列</span></td>
+                </tr>
+
+                <tr>
+                    <td data-th="產品編號"><span class="product-id">D007</span></td>
+                    <td data-th="產品名稱"><span class="product-name">綠茶拿鐵</span></td>
+                    <td data-th="產品價格"><span class="product-price">75元</span></td>
+                    <td data-th="產品數量"><span class="product-stock">65</span></td>
+                    <td data-th="產品備註"><span class="product-note">鮮奶系列</span></td>
+                </tr>
+
+                <tr>
+                    <td data-th="產品編號"><span class="product-id">D008</span></td>
+                    <td data-th="產品名稱"><span class="product-name">百香綠茶</span></td>
+                    <td data-th="產品價格"><span class="product-price">55元</span></td>
+                    <td data-th="產品數量"><span class="product-stock">110</span></td>
+                    <td data-th="產品備註"><span class="product-note">水果茶系列</span></td>
+                </tr>
+
+                <tr>
+                    <td data-th="產品編號"><span class="product-id">D009</span></td>
+                    <td data-th="產品名稱"><span class="product-name">芒果冰沙</span></td>
+                    <td data-th="產品價格"><span class="product-price">85元</span></td>
+                    <td data-th="產品數量"><span class="product-stock">48</span></td>
+                    <td data-th="產品備註"><span class="product-note">冰沙系列</span></td>
+                </tr>
+
+                <tr>
+                    <td data-th="產品編號"><span class="product-id">D010</span></td>
+                    <td data-th="產品名稱"><span class="product-name">葡萄柚綠茶</span></td>
+                    <td data-th="產品價格"><span class="product-price">60元</span></td>
+                    <td data-th="產品數量"><span class="product-stock">93</span></td>
+                    <td data-th="產品備註"><span class="product-note">季節水果茶</span></td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

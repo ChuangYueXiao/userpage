@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>切版練習</title>
+    <link rel="stylesheet" href="css/my.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: var(--mycolor01);
+            font-family: "DotGothic16", sans-serif;
+        }
+        .wrapper{
+            width: 1024px;
+            margin-top: 20px;
+            margin-bottom: 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .imgbox{
+            width: 1024px;
+            height: 350px;
+            background-color: rgb(255, 184, 43);
+            /* 背景圖 */
+            background-image: url(images/kan03.jpg);
+            background-position: center center;
+            background-size: cover;
+        }
+        nav{
+            background-color: var(--mycolor03);
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        nav ul{
+            display: inline-block;
+        }
+        nav ul li{
+            float: left;
+            list-style-type: none;
+        }
+        nav ul li a{
+            text-decoration: none;
+            display: block;
+            color: var(--mycolor06);
+            background-color: var(--mycolor02);
+            margin-right: 15px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 5px;
+            box-shadow: 3px 3px 3px 3px var(--mycolor05);
+            transition: border-radius 1s, box-shadow 1s;
+        }
+        nav ul li a:hover{
+            border-radius: 20px;
+            box-shadow: 2px 2px 2px 2px var(--mycolor01);
+        }
+        .content{
+            background-color: var(--mycolor06);
+            text-align: center;
+            padding-top: 25px;
+            padding-bottom: 25px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        .content h1{
+            color: var(--mycolor07);
+            font-size: 37px;
+            margin-bottom: 20px;
+        }
+        .content p{
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+        .content a{
+            display: block;
+            background-color: var(--mycolor04);
+            width: 150px;
+            height: 30px;
+            margin: 0 auto;
+            text-decoration: none;
+            color: var(--mycolor01);
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 30px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 3px 3px var(--mycolor05);
+            transition: box-shadow 2.5s;
+        }
+        .content a:hover{
+            box-shadow: 3px 3px 3px 3px var(--mycolor08);
+        }
+        .footer{
+            background-color: var(--mycolor03);
+            text-align: center;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            margin-top: 10px;
+        }
+        .footer p{
+            font-size: 18px;
+            font-weight: bold;
+        }
+        @media screen and (max-width:1200px) and (min-width: 1025px){
+            .imgbox{
+                background-image: url(images/kan02.jpg);
+            }
+        }
+        @media screen and (max-width: 1024px){
+            .wrapper{
+                width: 100%;
+            }
+            .imgbox{
+                width: 100%;
+                background-image: url(images/kan01.jpg);
+                height: 140px;
+            }
+            nav ul{
+                display: block;
+                padding-left: 10px;
+                margin: 0;
+            }
+            nav ul li{
+                float: none;
+                margin-bottom: 10px;
+            }
+            nav ul li a{
+                background-color: var(--mycolor09);
+                color: var(--mycolor05);
+            }
+            .content{
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            .content p{
+                font-size: 18px;
+                line-height: 1.4;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- # id   . class -->
+    <div class="wrapper">
+        <div class="banner">
+            <div class="imgbox"></div>
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-house fa-1x btn-test-secondary"></i>首頁</a></li>
+                    <li><a href="#"><i class="fa-solid fa-tv btn-test-primary"></i>最新消息</a></li>
+                    <li><a href="#"><i class="fa-solid fa-igloo btn-test-primary"></i>合作店家</a></li>
+                    <li><a href="#"><i class="fa-solid fa-book-atlas btn-test-primary"></i>關於我們</a></li>
+                    <li><a href="#"><i class="fa-solid fa-microphone-lines btn-test-primary"></i>聯絡我們</a></li>
+                </ul>
+            </nav>
+
+            <!-- <nav>
+                <ul>
+                    <li><a href="#">大袋鼠</a></li>
+                    <li><a href="#">樹袋鼠</a></li>
+                    <li><a href="#">沙袋鼠</a></li>
+                    <li><a href="#">岩袋鼠</a></li>
+                    <li><a href="#">矮袋鼠</a></li>
+                </ul>
+            </nav> -->
+        </div>
+        <div class="content">
+            <h1 class="fw-400">歡迎光臨</h1>
+            <p class="fw-400">距離商業解壓密碼信譽顯得，已有的是雲林上升用戶交給衝擊是不是國產透明資本辛苦三個，類型碩士需求藍色。</p>
+            <p class="fw-400">神話因此我的心一臉觀察意大利精品，主機一陣臨時主板導航和你普遍，維持以來意大利低價眼前程度反應是有總部，改革聲音上網，數字產權走進而已觀看準備早上資金推薦使用居然究竟，展開玻璃全市心理天空規模藝術網。</p>
+            <p>暫無巨大不久短信各級為你這時不知互動拒絶大全，日誌信號認為，主持種類要有品種什麼事承擔進去不是很很有來了出台打造，影響本論壇，男孩不想。</p>
+            <a href="#">了解更多</a>
+        </div>
+        <div class="footer">
+            <p>PowerBY CYX.2026.05</p>
+        </div>
+    </div>
+</body>
+
+</html>

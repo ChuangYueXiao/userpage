@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch11 表單練習(JavaScript)</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <style>
+        /* ===========================
+   全站設定
+=========================== */
+        body {
+            background: linear-gradient(135deg, #eef5ff, #f8fbff, #ffffff);
+            font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+            color: #2c3e50;
+        }
+
+        /* ===========================
+   外框
+=========================== */
+
+        .container {
+            max-width: 900px;
+        }
+
+        /* ===========================
+   主標題
+=========================== */
+
+        .display-4 {
+            background: linear-gradient(90deg, #3B82F6, #06B6D4);
+            color: white;
+            border-radius: 18px;
+            font-weight: 700;
+            letter-spacing: 3px;
+
+            box-shadow:
+                0 12px 30px rgba(0, 0, 0, .12);
+        }
+
+        /* ===========================
+   第二頁標題
+=========================== */
+
+        .display-5 {
+            background: linear-gradient(90deg, #10b981, #22c55e);
+            color: white;
+            border-radius: 18px;
+            font-weight: 700;
+
+            box-shadow:
+                0 12px 30px rgba(0, 0, 0, .12);
+        }
+
+        /* ===========================
+   表單區塊
+=========================== */
+
+        #s01 .col-md-6 {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, .08);
+        }
+
+        /* ===========================
+   Input
+=========================== */
+
+        .form-control,
+        .form-select {
+
+            border-radius: 12px;
+
+            border: 1px solid #d7dde8;
+
+            transition: .3s;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+
+            border-color: #3B82F6;
+
+            box-shadow:
+                0 0 0 .25rem rgba(59, 130, 246, .18);
+
+        }
+
+        /* ===========================
+   Label
+=========================== */
+
+        .form-label,
+        label {
+
+            font-weight: 600;
+            color: #34495e;
+        }
+
+        /* ===========================
+   checkbox radio
+=========================== */
+
+        .form-check {
+            margin: 15px;
+            padding: 10px 0;
+        }
+
+        .form-check-input {
+
+            cursor: pointer;
+        }
+
+        .form-check-label {
+
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        /* ===========================
+   switch
+=========================== */
+
+        .form-switch {
+
+            padding: 15px;
+            border-radius: 12px;
+            background: #f5f8fb;
+        }
+
+        /* ===========================
+   按鈕
+=========================== */
+
+        .btn {
+
+            border-radius: 12px;
+
+            padding: 10px 24px;
+
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+        /* 確認 */
+
+        .btn-primary {
+
+            background: linear-gradient(90deg, #3B82F6, #2563EB);
+
+            border: none;
+        }
+
+        .btn-primary:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 20px rgba(59, 130, 246, .3);
+        }
+
+        /* 取消 */
+
+        .btn-secondary {
+
+            background: #95a5a6;
+
+            border: none;
+        }
+
+        .btn-secondary:hover {
+
+            background: #7f8c8d;
+        }
+
+        /* 送出 */
+
+        .btn-warning {
+
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+
+            color: white;
+
+            border: none;
+        }
+
+        .btn-warning:hover {
+
+            color: white;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 20px rgba(249, 115, 22, .3);
+        }
+
+        /* ===========================
+   驗證文字
+=========================== */
+
+        .valid-feedback {
+
+            color: #10b981;
+
+            font-weight: 600;
+        }
+
+        .invalid-feedback {
+
+            color: #ef4444;
+
+            font-weight: 600;
+        }
+
+        /* ===========================
+   明細確認
+=========================== */
+
+        #s02 .col-md-6 {
+
+            background: white;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, .08);
+        }
+
+        /* ===========================
+   顯示結果
+=========================== */
+
+        #showmessage {
+
+            background: #f8fbff;
+
+            border-left: 6px solid #3B82F6;
+
+            border-radius: 12px;
+
+            padding: 25px;
+        }
+
+        #showmessage h3 {
+
+            font-size: 1.15rem;
+
+            padding: 8px 0;
+
+            border-bottom: 1px dashed #ddd;
+
+            margin-bottom: 10px;
+        }
+
+        /* ===========================
+   hover效果
+=========================== */
+
+        .form-control:hover,
+        .form-select:hover {
+
+            border-color: #60A5FA;
+        }
+
+        /* ===========================
+   配料、供應方式
+=========================== */
+
+        #topping_group,
+        #supply_group {
+
+            background: #f8fafc;
+
+            border-radius: 12px;
+
+            padding: 15px;
+        }
+
+        /* ===========================
+   RWD
+=========================== */
+
+        @media (max-width:768px) {
+
+            #s01 .col-md-6 {
+
+                padding: 20px;
+            }
+
+            .display-4 {
+
+                font-size: 2rem;
+            }
+
+            .display-5 {
+
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="">
+    <div class="container pt-5">
+        <div class="display-4 fw-900 text-center text-bg-info py-2">產品建檔</div>
+        <div class="row justify-content-center" id="s01">
+            <div class="col-md-6 mt-3">
+                <div class="md-3 form-floating">
+                    <input type="text" class="form-control form-control-lg" name="" id="pname" placeholder="">
+                    <label for="pname" class="form-label">產品名稱(字數1-6)</label>
+                    <div class="valid-feedback">符合規定</div>
+                    <div class="invalid-feedback">不符合規定</div>
+                </div>
+                <div class="mb-3">
+                    <label for="pnum">數量(1-10)</label>
+                    <input type="number" class="form-control form-control-lg" min="1" max="10" id="pnum"
+                        placeholder="請輸入數量">
+                    <div class="valid-feedback">符合規定</div>
+                    <div class="invalid-feedback">不符合規定</div>
+                </div>
+                <!-- 使用datalist 做出產品簡介(規格、備註)...... -->
+                <div class="mb-3">
+                    <label for="pstandard" class="form-label">產品規格</label>
+                    <input type="text" class="form-control form-control-lg" id="pstandard" list="datalistoption"
+                        placeholder="產品規格字數1-6">
+                    <datalist id="datalistoption">
+                        <option value="去冰"></option>
+                        <option value="無糖"></option>
+                        <option value="散裝"></option>
+                    </datalist>
+                    <div class="valid-feedback">符合規定</div>
+                    <div class="invalid-feedback">不符合規定</div>
+                </div>
+                <div class="mb-3">
+                    <select name="" id="psize" class="form-select form-select-lg is-invalid">
+                        <option value="" disabled selected class="text-center fw-900">請選擇容量</option>
+                        <option value="特大(2000cc以上)">特大(2000cc以上)</option>
+                        <option value="大(1000cc-2000cc)">大(1000cc-2000cc)</option>
+                        <option value="中(500cc-1000cc)">中(500cc-1000cc)</option>
+                        <option value="小(500cc以下)">小(500cc以下)</option>
+                    </select>
+                    <div class="valid-feedback">已選擇容量</div>
+                    <div class="invalid-feedback">請選擇容量</div>
+                </div>
+
+                <div class="mb-3 form-check form-switch">
+                    <input type="checkbox" name="" id="pstatus" class="form-check-input" checked>
+                    <label for="" class="form-check-label" id="pstatus_text">目前狀態: 上架</label>
+                </div>
+
+                <div class="mb-3">
+                    <div class="form-labal fw-900">可加配料: 至少選一項</div>
+                    <div id="topping_group" class="is-invalid">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input topping_item" value="珍珠">
+                            <label for="" class="form-check-label">珍珠</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input topping_item" value="椰果">
+                            <label for="" class="form-check-label">椰果</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input topping_item" value="蒟蒻">
+                            <label for="" class="form-check-label">蒟蒻</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input topping_item" value="布丁">
+                            <label for="" class="form-check-label">布丁</label>
+                        </div>
+                    </div>
+                    <div class="valid-feedback">配料已選擇</div>
+                    <div class="invalid-feedback">至少要加一種配料</div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="form-label fw-900">供應方案: 請選擇一項</div>
+                    <div id="supply_group" class="is-invalid">
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input supply_item" name="supply" value="冷飲">
+                            <label for="" class="form-check-label">冷飲</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input supply_item" name="supply" value="熱飲">
+                            <label for="" class="form-check-label">熱飲</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input supply_item" name="supply" value="溫飲">
+                            <label for="" class="form-check-label">溫飲</label>
+                        </div>
+                    </div>
+                    <div class="valid-feedback">已選擇提供方式</div>
+                    <div class="invalid-feedback">未選擇提供方式</div>
+                </div>
+
+                <div class="text-end mt-4">
+                    <button class="btn btn-secondary">取消</button>
+                    <button class="btn btn-primary" id="ok_btn">確認</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="row mt-5 justity-content-center d-none" id="s02">
+            <div class="display-5 fw-900 text-center text-bg-success py-2 rounded-3">產品建檔 - 明細確認</div>
+            <div class="col-md-6 p-3">
+                <div id="showmessage"></div>
+                <button class="btn btn-secondary mt-3 w-100"></button>
+                <button class="btn btn-warning mt-3 w-100">確認送出</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-4.0.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        let flag_pname = false;
+        let flag_pnum = false;
+        let flag_pstandard = false;
+        let flag_size = false;
+        let flag_topping = false;
+        let flag_supply = false;
+        $(function () {
+            // 監聽#pname
+            $("#pname").on("input", function () {
+                console.log($(this).val().length);
+                let pname = $(this).val().trim();
+
+                if (pname.length >= 1 && pname.length <= 6) {
+                    // 符合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_pname = true;
+                } else {
+                    // 不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_pname = false;
+                }
+            });
+
+            // 監聽#pnum 數字記得使用 Number()
+            $("#pnum").on("input", function () {
+                console.log($(this).val());
+
+                let pnum = Number($(this).val());
+                if (pnum >= 1 && pnum <= 10) {
+                    // 符合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_pnum = true;
+                } else {
+                    // 不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_pnum = false;
+                }
+            });
+
+            $("#pstandard").on("input", function () {
+                console.log($(this).val());
+
+                let pstandard = $(this).val().trim();
+                if (pstandard.length >= 1 && pstandard.length <= 6) {
+                    // 符合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_pstandard = true;
+                } else {
+                    // 不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_pstandard = false;
+                }
+            });
+
+            // 監聽#psize
+            $("#psize").on("change", function () {
+                console.log($(this).val());
+
+                let psize = $(this).val().trim();
+                if (psize != "") {
+                    // 符合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_size = true;
+                } else {
+                    // 不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_size = false;
+                }
+            });
+
+            // 監聽#pstatus
+            $("#pstatus").on("change", function () {
+                console.log($(this).prop("checked"));
+
+                let pstatus = $(this).prop("checked");
+                if (pstatus) {
+                    $("pstatus_text").text("目前狀態: 上架")
+                } else {
+                    $("pstatus_text").text("目前狀態: 下架")
+                }
+            });
+
+            // 監聽.topping_item
+            $(".topping_item").on("change", function () {
+                console.log($(".topping_item:checked").length);
+                let count = $(".topping_item:checked").length;
+                if (count > 0) {
+                    $("#topping_group").removeClass("is-invalid");
+                    $("#topping_group").addClass("is-valid");
+                    flag_topping = true;
+                } else {
+                    $("#topping_group").removeClass("is-valid");
+                    $("#topping_group").addClass("is-invalid");
+                    flag_topping = false;
+                }
+            });
+
+            //監聽.supply_item
+            $(".supply_item").on("change", function () {
+                console.log($(".supply_item:checked").val());
+                let supply = $(".supply_item:checked").val();
+                if (supply != undefined) {
+                    $("#supply_group").removeClass("is-invalid");
+                    $("#supply_group").addClass("is-valid");
+                    flag_supply = true;
+                } else {
+                    $("#supply_group").removeClass("is-valid");
+                    $("#supply_group").addClass("is-invalid");
+                    flag_supply = false;
+                }
+            });
+
+            // 按鈕監聽 #ok_btn
+            $("#ok_btn").on("click", function () {
+                if (flag_pname && flag_pnum && flag_pstandard && flag_size && flag_topping) {
+                    // 顯示產品建檔-明細確認    
+                    $("#s02").removeClass("d-none");
+
+                    // 三元運算子
+                    let pstatus = $("#pstatus").prop("checked") ? "上架" : "下架";
+
+                    // 收集可加配料
+                    let toppingArray = [];
+                    $(".topping_item:checked").each(function () {
+                        console.log($(this).val());
+                        toppingArray.push($(this).val());
+                    });
+                    console.log(toppingArray);
+
+                    // 供應方式
+                    let supply = $(".supply_item:checked").val();
+
+                    let strHTML = `<h3> 產品名稱: ${$("#pname").val()} </h3>
+                                    <h3> 產品名稱: ${$("#pnum").val()} </h3>
+                                    <h3> 產品名稱: ${$("#pstandard").val()} </h3>
+                                    <h3> 產品名稱: ${$("#psize").val()} </h3>
+                                    <h3> 目前狀態: ${pstatus}</h3>
+                                    <h3> 選取配料: ${toppingArray.join(",")}</h3>
+                                    <h3> 供應方式: ${supply}</h3>`;
+                    $("#showmessage").html(strHTML);
+                } else {
+                    Swal.fire({
+                        title: "錯誤",
+                        text: "欄位錯誤請修正",
+                        icon: "error"
+                    });
+                    $("#s02").addClass("d-none");
+                }
+
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <style>
+        .header {
+            height: 160px;
+            background-image: url(images/kan02.jpg);
+            background-position: center center;
+            background-size: cover;
+        }
+
+        .navBox {
+            height: 90px;
+            margin-top: 15px;
+            font-size: 48px;
+            text-align: center;
+            line-height: 90px;
+            font-weight: 900;
+            color: aliceblue;
+        }
+
+        .contentBox {
+            position: relative;
+            overflow: hidden;
+
+            border: none;
+            border-radius: 15px;
+
+            box-shadow: 0 4px 15px rgba(0, 0, 0, .15);
+            transition: all .3s;
+        }
+
+        .contentBox:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
+        }
+
+        .contentBox img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .roller_box {
+            position: absolute;
+            top: 0;
+            left: -100%;
+
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(255, 255, 255, .15);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+
+            transition: .5s;
+            z-index: 10;
+        }
+
+        .roller-l:hover .roller_box {
+            left: 0;
+        }
+
+
+        @media screen and (min-width: 768px) {
+            .navBox {
+                height: 180px;
+                line-height: 180px;
+            }
+        }
+
+        @media screen and (min-width: 992px) {
+            .navBox {
+                width: 180px;
+                border-radius: 50%;
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+            .navBox {
+                width: 220px;
+                height: 220px;
+                line-height: 220px;
+                border-radius: 50%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-none d-sm-block">
+                <div class="header bg-info"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
+                <div class="navBox bg-primary">選單01</div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="navBox bg-primary">選單02</div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="navBox bg-primary">選單03</div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="navBox bg-primary">選單04</div>
+            </div>
+        </div>
+        <div class="row" id="dataList">
+        </div>
+            
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-4.0.0.js"></script>
+    <script>
+        $(function () {
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:3000/travelFood/",
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                    //1. 清洗資料, 保留需要用到的欄位
+                    const cleanData = data.map (function (item, index){
+                        let img = (item.PicURL ?? "").trim();
+                        if (img == ""){
+                            img = "images/ACL037300.jpg";
+                        }
+
+                        let name = (item.Name ?? "").trim();
+                        if (name == ""){
+                            name = "未提供名稱";
+                        }
+
+                        let address = (item.Address ?? "").trim();
+                        if (address == ""){
+                            address = "未提供地址";
+                        }
+
+                        let city = (item.City ?? "").trim();
+                        if (city == ""){
+                            city = "未提供縣市名稱";
+                        }
+
+                        let town = (item.Town ?? "").trim();
+                        if (town == ""){
+                            town = "未提供鄉鎮區名稱";
+                        }
+
+                        let description = (item.HostWords ?? "").trim();
+                        if (description == ""){
+                            description = "未提供簡介";
+                        }
+
+                        return{
+                            id: index+1,
+                            name: name,
+                            img : img,
+                            address : city+town+address,
+                            description: description
+                        }
+                    });
+                    //2. 將清洗後的資料渲染到AI產生的contentBox
+                    cleanData.forEach(function(item){
+                        let strHTML = ` <div class="col-md-6 col-lg-4 mt-3">
+                                            <div class="card contentBox roller-l h-100">
+
+                                                <div class="roller_box">
+                                                    <a href="#" class="btn btn-success btn-lg">
+                                                        查看餐廳
+                                                    </a>
+                                                </div>
+
+                                                <img src="${item.img}" class="card-img-top" alt="餐廳照片">
+                                                <div class="card-body">
+                                                    <h4 class="card-title fw-bold">
+                                                        ${item.name}
+                                                    </h4>
+                                                    <p class="text-secondary mb-2">
+                                                        📍 ${item.description}
+                                                    </p>
+                                                    <p class="card-text">
+                                                        ${item.description}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>`
+            $("#dataList").append(strHTML);
+                    })
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

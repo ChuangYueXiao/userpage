@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch7 - 時間軸排版練習</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <style>
+        .imgbox{
+            height: 220px;
+        }
+        .timeline-section{
+            position: relative;
+        }
+        .timeline-section::before{
+            position: absolute;
+            content: "";
+            top: 10px;
+            bottom: 0;
+            width: 5px;
+            background-color: rgb(50, 150, 150);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .timeline-section-pointer{
+            position: relative;
+        }
+        .timeline-section-pointer::before{
+            position: absolute;
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: aqua;
+            top: 0;
+            border-radius: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid;
+        }
+        @media screen and (max-width: 768px) {
+            .timeline-section::before, .timeline-section-pointer::before{
+                display: none;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-3">
+        <div class="display-2 text fw-900 text-primary my-4">公司沿革</div>
+        <div class="timeline-section">
+            <div class="row align-items-center timeline-section-pointer">
+                <div class="col-md-6 mt-3">
+                    <div class="imgbox bg-cover" style="background-image: url(images/kan07.jpg);"></div>
+                </div>
+                <div class="col-md-6 mt-3">
+                    <div class="textbox">
+                        <div class="h2">1. 公司草創</div>
+                        <P>絶對個性那個郵遞區號自動應該比賽走到中學美元發達到處我是關鍵，溫暖尋求互動多個轉變點這裡利潤藍色又有大全程式，保育石虎富岡，機關媽媽作業浪漫意思</P>
+                        <p>證明刷新程式它們轉貼之一手冊參數上帝衛生財產技巧，使用雙手但他，低價每個人工作，經歷元素，專輯臉色必須思路詳。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center flex-xl-row-reverse timeline-section-pointer">
+                <div class="col-md-6 mt-3">
+                    <div class="imgbox bg-cover" style="background-image: url(images/kan08.jpg);"></div>
+                </div>
+                <div class="col-md-6 mt-3">
+                    <div class="textbox">
+                        <div class="h2">2. 公司發展</div>
+                        <p>聯合理念措施，各自同一漸漸再次下降來說朋友介紹，批發統計擁有我去尋找本論壇兄弟玻璃夫人複製日前檔案焦點教程，各個你在釣魚二手協調然後一天，進去多麼來看實施防治</p>
+                        <p>來看企業安徽頭髮而來美女幻想認真概念目標，減肥記住顯然是有至今本地下載一流躺在，人力獨立，說道。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center timeline-section-pointer">
+                <div class="col-md-6 mt-3">
+                    <div class="imgbox bg-cover" style="background-image: url(images/kan10.jpg);"></div>
+                </div>
+                <div class="col-md-6 mt-3">
+                    <div class="textbox">
+                        <div class="h2">3. 公司整合</div>
+                        <p>意味着足夠老闆最好的，日前幫我美麗管理員，收藏我是攝影你也意見至於，伺服器預期協調新聞，輕易信箱將來實際上一番提升上路阿摩斯，無限顧客其實閲讀演唱會處於這一點到我淡淡更大傳播</p>
+                        <p>著名著名相冊，過去司機湖北自己的其它，依然諾基亞性感離開，工程師石油出現，他對。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center flex-xl-row-reverse timeline-section-pointer">
+                <div class="col-md-6 mt-3">
+                    <div class="imgbox bg-cover" style="background-image: url(images/kan11.jpg);"></div>
+                </div>
+                <div class="col-md-6 mt-3">
+                    <div class="textbox">
+                        <div class="h2">4. 公司發展</div>
+                        <p>聯合理念措施，各自同一漸漸再次下降來說朋友介紹，批發統計擁有我去尋找本論壇兄弟玻璃夫人複製日前檔案焦點教程，各個你在釣魚二手協調然後一天，進去多麼來看實施防治</p>
+                        <p>來看企業安徽頭髮而來美女幻想認真概念目標，減肥記住顯然是有至今本地下載一流躺在，人力獨立，說道。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
